@@ -1,0 +1,54 @@
+BoxLayout:
+    
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.4
+        Label:
+            text: 'Sort by:'
+        Spinner:
+            id: key_selection
+            text: app.current_key
+            values: app.keys
+            on_text: app.change_key(self.text)
+        Label:
+            text: 'Add New Movie...'
+        Label:
+            text: 'Title:'
+        TextInput:
+            id: title
+            multiline: False
+            write_tab: False
+        Label:
+            text: 'Category:'
+        TextInput:
+            id: category
+            multiline: False
+            write_tab: False
+        Label:
+            text: 'Year:'
+        TextInput:
+            id: year
+            multiline: False
+            write_tab: False
+        Button:
+            text: 'Add Movie'
+            on_press: app.add_movie()
+        Button:
+            text: 'Clear'
+            id: clear
+            on_press: app.handle_clear()
+
+    BoxLayout:
+        orientation: 'vertical'
+        
+        
+        Label:
+            id: movies
+            size_hint_y: 0.11
+        BoxLayout:
+            orientation: 'vertical'
+            id: entries_box
+        Label:
+            id: status_text
+            size_hint_y: 0.11
+            text: 'Welcome to Movie to Watch 2.0'
